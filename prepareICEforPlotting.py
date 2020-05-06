@@ -7,24 +7,30 @@ Created on Thu Jan 23 14:41:12 2020
 @licence: MIT licence Copyright
 """
 import time
+import sys
 
+sys.path.append('../LES-03plotting')
+from Colorful import Colorful
 from InputSimulation import InputSimulation
 
 def prepareIceManuscriptData():
 
     colorDict ={
-                "ICE0": "#3cb44b",
-                "ICE1": "#f58231",
-                "ICE2": "#f032e6",
-                "ICE3": "#469990",
-                "ICE4": "#4363d8",
-                "ICE5": "#800000",
-                "ICE6": "#000075",
-                "Prognostic": "#e6194B",
-                "BIN": "#000000",
-                "BULK": "#a9a9a9"}
+                "ICE0": Colorful.getDistinctColorList("green"),
+                "ICE1": Colorful.getDistinctColorList("orange"),
+                "ICE2": Colorful.getDistinctColorList("magenta"),
+                "ICE3": Colorful.getDistinctColorList("teal"),
+                "ICE4": Colorful.getDistinctColorList("blue"),
+                "ICE5": Colorful.getDistinctColorList("maroon"),
+                "ICE6": Colorful.getDistinctColorList("navy"),
+                "BIN": Colorful.getDistinctColorList("black"),
+                "BULK": Colorful.getDistinctColorList("grey"),
+                "Prognostic": Colorful.getDistinctColorList("red"),
+                "PrognosticAero": Colorful.getDistinctColorList("purple"),
+                "Prognostic2": Colorful.getDistinctColorList("cyan"),
+                "Prognostic2Aero": Colorful.getDistinctColorList("mint")}
                 
-    folder = "/home/aholaj/OneDrive/kuvatesti/"
+    folder = "/home/aholaj/Nextcloud/kuvatesti/"
     
     manuscriptSimulationData = InputSimulation(
             idCollection = "ids.yaml",
@@ -37,12 +43,7 @@ def prepareIceManuscriptData():
 
 def main():
     prepareIceManuscriptData()
-   
-if __name__ == "__main__":
-    start = time.time()
-    main()
-    end = time.time()
-    print("Script completed in " + str(round((end - start),0)) + " seconds")       
+      
 if __name__ == "__main__":
     start = time.time()
     main()
